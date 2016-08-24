@@ -21,7 +21,7 @@ git push origin "$BRANCH"
 TITLE="$MSG"
 HEAD="$BRANCH"
 BASE="master"
-DATA="\{\"title\":\"$TITLE\",\"head\":\"$HEAD\",\"base\":\"$BASE\"\}"
+DATA="{\"title\":\"$TITLE\",\"head\":\"$HEAD\",\"base\":\"$BASE\"}"
 echo "$DATA"
 
 CONTENT_TYPE="Content-Type: application/json"
