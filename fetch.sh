@@ -28,4 +28,4 @@ ACCEPT="Accept: application/vnd.github.v3+json"
 
 URL="https://api.github.com/repos/StoDevX/stolaf-dictionary-definitions/pulls"
 
-curl -u "hawkrives:$GH_KEY" -H "$CONTENT_TYPE" -H "$ACCEPT" -d "$DATA" "$URL"
+curl -v -u "hawkrives:$GH_KEY" -H "$CONTENT_TYPE" -H "$ACCEPT" -d "$DATA" "$URL"
