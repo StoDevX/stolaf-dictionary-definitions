@@ -2,9 +2,7 @@
 
 python3 check.py
 
-DIFF=$(git diff)
-
-if ! [[ -n $DIFF ]]; then
+if ! [[ -n "$(git status --porcelain)" ]]; then
   curl -d "m=no changes" https://nosnch.in/abf7027315
   exit 0
 fi
