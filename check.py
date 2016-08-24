@@ -13,4 +13,3 @@ for page in url_suffixes:
   pretty = defs.prettify()
   with open('./%s.html' % page, 'w', encoding='utf-8') as outfile:
     outfile.write(pretty + '\n')
-
