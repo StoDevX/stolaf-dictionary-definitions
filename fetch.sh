@@ -7,6 +7,7 @@ if ! [[ -n "$(git status --porcelain)" ]]; then
   exit 0
 fi
 
+git checkout master
 DATE=$(date "+%Y-%m-%d_%H-%M-%S")
 BRANCH="new-data_$DATE"
 git checkout -b "$BRANCH"
