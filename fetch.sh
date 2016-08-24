@@ -22,6 +22,7 @@ TITLE="$MSG"
 HEAD="$BRANCH"
 BASE="master"
 DATA="\{\"title\":\"$TITLE\",\"head\":\"$HEAD\",\"base\":\"$BASE\"\}"
+echo "$DATA"
 
 CONTENT_TYPE="Content-Type: application/json"
 ACCEPT="Accept: application/vnd.github.v3+json"
