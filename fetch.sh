@@ -1,5 +1,9 @@
 #!/bin/bash -ev
 
+rm -rf repo
+git clone https://github.com/repos/StoDevX/stolaf-dictionary-definitions.git repo
+cd repo
+
 python3 check.py
 
 if ! [[ -n "$(git status --porcelain)" ]]; then
