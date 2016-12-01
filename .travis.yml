@@ -1,0 +1,20 @@
+language: python
+python: '3.5'
+sudo: false
+
+branches:
+  only: [master, /^travis/]
+
+install: pip3 install --user -r requirements.txt
+
+script:
+  - check.py
+  - check-for-changes.py
+
+after_failure:
+  - snitch.py "no changes"
+
+after_success:
+  - push-changes.py
+  - submit-pr.py
+  - snitch.py "changes happened"
