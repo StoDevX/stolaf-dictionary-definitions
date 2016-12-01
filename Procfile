@@ -1,1 +1,1 @@
-fetch: ./fetch.sh
+fetch: ./bin/fetch.sh

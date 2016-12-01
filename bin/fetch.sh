@@ -4,7 +4,7 @@ rm -rf repo
 git clone https://github.com/StoDevX/stolaf-dictionary-definitions.git repo
 cd repo
 
-python3 check.py
+python3 bin/check.py
 
 if ! [[ -n "$(git status --porcelain)" ]]; then
   curl -d "m=no changes" https://nosnch.in/abf7027315
