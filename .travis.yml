@@ -14,18 +14,12 @@ script:
   # fetch the dictionary pages
   - bin/fetch.py
 
-  # check to see if the fetched pages are different
-  # this one will trigger after_{failure,success}
-  - bin/check-for-changes.py
-
-# notify little snitch either way
-after_failure:
-  - bin/snitch.py "no changes"
-
 # submit the changes
 after_success:
-  # make a PR with the changes
-  - bin/submit-pr.py
-
-  # notify little snitch
-  - bin/snitch.py "changes happened"
+  -|
+    if ! [[ -n "$(git status --porcelain)" ]]; then
+      bin/snitch.py "no changes"
+    else
+      bin/submit-pr.py
+      bin/snitch.py "changes happened"
+    fi
