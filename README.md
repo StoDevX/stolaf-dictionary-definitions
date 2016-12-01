@@ -1,5 +1,7 @@
 # stolaf-dictionary-differ
 
+[![Build Status](https://travis-ci.org/StoDevX/stolaf-dictionary-definitions.svg?branch=master)](https://travis-ci.org/StoDevX/stolaf-dictionary-definitions)
+
 This needs four things to work:
 
 1. Python 3
