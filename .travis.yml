@@ -15,9 +15,8 @@ script:
   # fetch the dictionary pages
   - bin/fetch.py
 
-# submit the changes
-after_success:
-  -|
+  # submit the changes
+  - |
     if ! [[ -n "$(git status --porcelain)" ]]; then
       bin/snitch.py "no changes"
     else
