@@ -1,20 +1,31 @@
+# pick our container
+sudo: false
+dist: trusty
+
+# pick our language/runtime
 language: python
 python: '3.5'
-sudo: false
 
-branches:
-  only: [master, /^travis/]
-
+# install our deps
 install: pip3 install --user -r requirements.txt
 
+# check for changes
 script:
-  - check.py
-  - check-for-changes.py
+  # fetch the dictionary pages
+  - bin/fetch.py
 
+  # check to see if the fetched pages are different
+  # this one will trigger after_{failure,success}
+  - bin/check-for-changes.py
+
+# notify little snitch either way
 after_failure:
-  - snitch.py "no changes"
+  - bin/snitch.py "no changes"
 
+# submit the changes
 after_success:
-  - push-changes.py
-  - submit-pr.py
-  - snitch.py "changes happened"
+  # make a PR with the changes
+  - bin/submit-pr.py
+
+  # notify little snitch
+  - bin/snitch.py "changes happened"
