@@ -7,7 +7,7 @@ language: python
 python: '3.5'
 
 # install our deps
-install: pip3 install --user -r requirements.txt
+install: pip3 install -r requirements.txt
 
 # check for changes
 script:
