@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 import os
 
-date = datetime.now().isoformat()
+date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
 run(['git', 'checkout', 'master'])
 branch = "new-data_" + date
