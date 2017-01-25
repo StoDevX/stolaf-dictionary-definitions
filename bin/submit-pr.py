@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from subprocess import run, PIPE
 from datetime import datetime
+import requests
 import os
 
 date = datetime.now().isoformat()
