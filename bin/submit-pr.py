@@ -9,7 +9,6 @@ def run(*cmd_and_args):
 
 date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-run('git', 'checkout', 'master')
 branch = "new-data_" + date
 run('git', 'checkout', '-b', branch)
 
