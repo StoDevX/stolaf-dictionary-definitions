@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
-from subprocess import run, PIPE
+from subprocess import run as run_func
 from datetime import datetime
 import requests
 import os
 
+def run(*cmd_and_args):
+    return run_func(cmd_and_args, check=True)
+
 date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-run(['git', 'checkout', 'master'])
+run('git', 'checkout', 'master')
 branch = "new-data_" + date
-run(['git', 'checkout', '-b', branch])
+run('git', 'checkout', '-b', branch)
 
 author = "Dictionary Bot <hawkrives+stolaf-dictionary-bot@gmail.com>"
 msg = "data update for " + date
-run(['git', 'add', '--', '*.html'])
-run(['git', 'commit', '-m', msg])
-run(['git', 'commit', '--amend', '--author', author, '--no-edit'])
+run('git', 'add', '--', '*.html')
+run('git', 'commit', '-m', msg)
+run('git', 'commit', '--amend', '--author', author, '--no-edit')
 
-run(['git', 'push', 'origin', branch])
+run('git', 'push', 'origin', branch)
 
 # # # # #
 
