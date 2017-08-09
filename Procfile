@@ -1,1 +1,0 @@
-fetch: ./bin/fetch.sh
