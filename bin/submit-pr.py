@@ -5,6 +5,7 @@ import os
 import requests
 
 date = datetime.now().isoformat()
+pushUrl = 'https://' + $os.getenv('GH_KEY') + '@github.com/stodevx/stolaf-dictionary-definitions.git'
 
 run(['git', 'checkout', 'master'], check=True)
 branch = "new-data_" + date.replace(':', '-')
@@ -16,7 +17,7 @@ run(['git', 'add', '--', '*.html'], check=True)
 run(['git', 'commit', '-m', msg], check=True)
 run(['git', 'commit', '--amend', '--author', author, '--no-edit'], check=True)
 
-run(['git', 'push', 'origin', branch], check=True)
+run(['git', 'push', pushUrl, branch], check=True)
 
 # # # # #
 
