@@ -6,17 +6,17 @@ import requests
 
 date = datetime.now().isoformat()
 
-run(['git', 'checkout', 'master'])
-branch = "new-data_" + date
-run(['git', 'checkout', '-b', branch])
+run(['git', 'checkout', 'master'], check=True)
+branch = "new-data_" + date.replace(':', '-')
+run(['git', 'checkout', '-b', branch], check=True)
 
 author = "Dictionary Bot <hawkrives+stolaf-dictionary-bot@gmail.com>"
 msg = "data update for " + date
-run(['git', 'add', '--', '*.html'])
-run(['git', 'commit', '-m', msg])
-run(['git', 'commit', '--amend', '--author', author, '--no-edit'])
+run(['git', 'add', '--', '*.html'], check=True)
+run(['git', 'commit', '-m', msg], check=True)
+run(['git', 'commit', '--amend', '--author', author, '--no-edit'], check=True)
 
-run(['git', 'push', 'origin', branch])
+run(['git', 'push', 'origin', branch], check=True)
 
 # # # # #
 
