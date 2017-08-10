@@ -31,21 +31,13 @@ Then we tell Dead Man's Snitch that we've finished.
 It's not required, but it waits to hear from something every so often. If it doesn't hear back, it sends you an email telling you that something's not working. Nice and simple.
 
 
-### A `cron`-like tool
-I'm using Heroku and their Heroku Scheduler for this.
+### How I did this:
 
-How I did this was:
-
-- open Heroku
-- create a new app
-- connect it to this repository
-- add Heroku Scheduler
-- configure it to run once a day at 11:30PM UTC
-- tell it to run the command `./fetch.sh`
+- set up a scheduler to run `./bin/fetch.sh`
 - add the Dead Man's Snitch integration
-- take the link from Dead Man's Snitch and put it in fetch.sh
+- take the link from Dead Man's Snitch and put it in `./bin/fetch.sh`
 - Done!
 
-Now, whenever I push a new commit to this repository, Heroku sees it and fetches the new stuff. Then the next time the scheduler runs it, it's already set up.
+Now, whenever I push a new commit to this repository, new stuff is fetched. Then the next time the scheduler runs it, it's already set up.
 
 I've tried to make it not terribly complicated. If anyone thinks of an improvement, let me / us know! Issues and PRs are open and welcome :smile:.
