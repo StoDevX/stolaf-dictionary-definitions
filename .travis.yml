@@ -17,9 +17,11 @@ script:
 
   # submit the changes
   - |
-    if ! [[ -n "$(git status --porcelain)" ]]; then
-      bin/snitch.py "no changes"
-    else
-      bin/submit-pr.py
-      bin/snitch.py "changes happened"
+    if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then
+      if ! [[ -n "$(git status --porcelain)" ]]; then
+        bin/snitch.py "no changes"
+      else
+        bin/submit-pr.py
+        bin/snitch.py "changes happened"
+      fi
     fi
