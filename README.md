@@ -33,7 +33,7 @@ It's not required, but it waits to hear from something every so often. If it doe
 
 ### How I did this:
 
-- set up a scheduler to run `./bin/fetch.sh`
+- set up a scheduler to run `./bin/fetch.py`
 - add the Dead Man's Snitch integration
 - take the link from Dead Man's Snitch and put it in `./bin/fetch.sh`
 - Done!
