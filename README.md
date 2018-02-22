@@ -35,7 +35,7 @@ It's not required, but it waits to hear from something every so often. If it doe
 
 - set up a scheduler to run `./bin/fetch.py`
 - add the Dead Man's Snitch integration
-- take the link from Dead Man's Snitch and put it in `./bin/fetch.sh`
+- take the link from Dead Man's Snitch and put it in `./bin/fetch.py`
 - Done!
 
 Now, whenever I push a new commit to this repository, new stuff is fetched. Then the next time the scheduler runs it, it's already set up.
